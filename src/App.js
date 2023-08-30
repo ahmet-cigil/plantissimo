@@ -1,16 +1,22 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Box } from "@mui/material";
-import { Navbar, Feed, FeedDetail, SearchFeed } from "./components";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer.jsx";
+import Feed from "./pages/Feed.jsx";
+import FeedDetail from "./pages/FeedDetail.jsx";
+import SearchFeed from "./pages/SearchFeed";
+import "./App.css";
 
 const App = () => (
 	<Router>
-		<Box>
+		<Box className="background-container">
 			<Navbar />
 			<Routes>
 				<Route path="/" exact element={<Feed />} />
 				<Route path="/feed-detail/:id" exact element={<FeedDetail />} />
 				<Route path="/search-feed/:searchTerm" exact element={<SearchFeed />} />
 			</Routes>
+			<Footer />
 		</Box>
 	</Router>
 );
